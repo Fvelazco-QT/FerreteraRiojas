@@ -1,21 +1,24 @@
-﻿using System;
+﻿using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.Utils.CommonDialogs;
+using System.Text.Json;
+using Newtonsoft.Json;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
-using Npgsql;
 namespace FerreteraRiojas
 {
-
-    public partial class Form1 : Form
+    public partial class Menu : Form
     {
 
-        public Form1()
+        public Menu()
         {
             InitializeComponent();
         }
@@ -98,6 +101,127 @@ namespace FerreteraRiojas
         private void btnTodo_Click(object sender, EventArgs e)
         {
              CRUD.ReadAll(dgvProductos);
+        }
+        System.Data.DataTable dt = Conexion.ConsultaSelect("SELECT * FROM public.\"Producto\"; ");
+
+
+        private void btnTxt_Click(object sender, EventArgs e)
+        {
+
+            using (StreamWriter file = new StreamWriter("archivo.txt", true))
+            {
+               
+                foreach (DataRow row in dt.Rows)
+                {
+                    List<string> items = new List<string>();
+                    foreach (DataColumn col in dt.Columns)
+                    {
+                        items.Add(row[col.ColumnName].ToString());
+
+
+                    }
+                    string linea = string.Join("|", items.ToArray());
+                    file.WriteLine(linea);
+                }
+            }
+        }
+
+        private void btnCsv_Click(object sender, EventArgs e)
+        {
+            System.Data.DataTable dtDataTable = dt;
+            StreamWriter sw = new StreamWriter("archivo.csv", false);
+            //headers    
+            for (int i = 0; i < dtDataTable.Columns.Count; i++)
+            {
+                sw.Write(dtDataTable.Columns[i]);
+                if (i < dtDataTable.Columns.Count - 1)
+                {
+                    sw.Write(",");
+                }
+            }
+            sw.Write(sw.NewLine);
+            foreach (DataRow dr in dtDataTable.Rows)
+            {
+                for (int i = 0; i < dtDataTable.Columns.Count; i++)
+                {
+                    if (!Convert.IsDBNull(dr[i]))
+                    {
+                        string value = dr[i].ToString();
+                        if (value.Contains(','))
+                        {
+                            value = String.Format("\"{0}\"", value);
+                            sw.Write(value);
+                        }
+                        else
+                        {
+                            sw.Write(dr[i].ToString());
+                        }
+                    }
+                    if (i < dtDataTable.Columns.Count - 1)
+                    {
+                        sw.Write(",");
+                    }
+                }
+                sw.Write(sw.NewLine);
+            }
+            sw.Close();
+        }
+
+        private void btnPdf_Click_1(object sender, EventArgs e)
+        {
+            Document document = new Document();
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream("archivo.pdf", FileMode.Create));
+            document.Open();
+            iTextSharp.text.Font font5 = iTextSharp.text.FontFactory.GetFont(FontFactory.HELVETICA, 5);
+
+            PdfPTable table = new PdfPTable(dt.Columns.Count);
+            PdfPRow row = null;
+            float[] widths = new float[dt.Columns.Count];
+            for (int i = 0; i < dt.Columns.Count; i++)
+                widths[i] = 4f;
+
+            table.SetWidths(widths);
+
+            table.WidthPercentage = 100;
+            int iCol = 0;
+            string colname = "";
+            PdfPCell cell = new PdfPCell(new Phrase("Products"));
+
+            cell.Colspan = dt.Columns.Count;
+
+            foreach (DataColumn c in dt.Columns)
+            {
+                table.AddCell(new Phrase(c.ColumnName, font5));
+            }
+
+            foreach (DataRow r in dt.Rows)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    for (int h = 0; h < dt.Columns.Count; h++)
+                    {
+                        table.AddCell(new Phrase(r[h].ToString(), font5));
+                    }
+                }
+            }
+            document.Add(table);
+            document.Close();
+        }
+
+        private void btnXml_Click(object sender, EventArgs e)
+        {
+            DataSet dataSet = new DataSet();
+            dataSet.Tables.Add(dt);
+            dataSet.WriteXml("archivo.xml");
+        }
+
+        private void btnJson_Click(object sender, EventArgs e)
+        {
+            string jsonString = string.Empty;
+            jsonString = JsonConvert.SerializeObject(dt);
+            
+            string json = JsonSerializer.Serialize(jsonString);
+            File.WriteAllText("archivo.json", json);
         }
     }
 }

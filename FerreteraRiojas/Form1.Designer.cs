@@ -1,6 +1,6 @@
 ﻿namespace FerreteraRiojas
 {
-    partial class Form1
+    partial class Menu
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -49,14 +49,22 @@
             this.numIdArticulo = new System.Windows.Forms.NumericUpDown();
             this.txtDelete = new System.Windows.Forms.Button();
             this.btnTodo = new System.Windows.Forms.Button();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnTxt = new System.Windows.Forms.Button();
+            this.btnCsv = new System.Windows.Forms.Button();
+            this.btnPdf = new System.Windows.Forms.Button();
+            this.btnXml = new System.Windows.Forms.Button();
+            this.btnJson = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIdArticulo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtUpdate
             // 
-            this.txtUpdate.Location = new System.Drawing.Point(142, 409);
+            this.txtUpdate.Location = new System.Drawing.Point(146, 362);
             this.txtUpdate.Name = "txtUpdate";
             this.txtUpdate.Size = new System.Drawing.Size(98, 23);
             this.txtUpdate.TabIndex = 0;
@@ -69,40 +77,40 @@
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Location = new System.Drawing.Point(384, 12);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.Size = new System.Drawing.Size(404, 420);
+            this.dgvProductos.Size = new System.Drawing.Size(404, 477);
             this.dgvProductos.TabIndex = 1;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(98, 151);
+            this.txtNombre.Location = new System.Drawing.Point(102, 104);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(228, 20);
             this.txtNombre.TabIndex = 2;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(98, 232);
+            this.txtDescripcion.Location = new System.Drawing.Point(102, 185);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(228, 20);
             this.txtDescripcion.TabIndex = 4;
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(98, 272);
+            this.txtCodigo.Location = new System.Drawing.Point(102, 225);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(228, 20);
             this.txtCodigo.TabIndex = 5;
             // 
             // txtUnidad
             // 
-            this.txtUnidad.Location = new System.Drawing.Point(98, 317);
+            this.txtUnidad.Location = new System.Drawing.Point(102, 270);
             this.txtUnidad.Name = "txtUnidad";
             this.txtUnidad.Size = new System.Drawing.Size(228, 20);
             this.txtUnidad.TabIndex = 6;
             // 
             // txtDepartamento
             // 
-            this.txtDepartamento.Location = new System.Drawing.Point(98, 363);
+            this.txtDepartamento.Location = new System.Drawing.Point(102, 316);
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.Size = new System.Drawing.Size(228, 20);
             this.txtDepartamento.TabIndex = 7;
@@ -110,7 +118,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 151);
+            this.label1.Location = new System.Drawing.Point(25, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 8;
@@ -119,7 +127,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 196);
+            this.label2.Location = new System.Drawing.Point(25, 149);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 9;
@@ -128,7 +136,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 235);
+            this.label3.Location = new System.Drawing.Point(25, 188);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 10;
@@ -137,7 +145,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 279);
+            this.label4.Location = new System.Drawing.Point(25, 232);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 11;
@@ -146,7 +154,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 324);
+            this.label5.Location = new System.Drawing.Point(25, 277);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 12;
@@ -155,7 +163,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 366);
+            this.label6.Location = new System.Drawing.Point(22, 319);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 13;
@@ -163,7 +171,7 @@
             // 
             // txtCrear
             // 
-            this.txtCrear.Location = new System.Drawing.Point(15, 409);
+            this.txtCrear.Location = new System.Drawing.Point(19, 362);
             this.txtCrear.Name = "txtCrear";
             this.txtCrear.Size = new System.Drawing.Size(96, 23);
             this.txtCrear.TabIndex = 14;
@@ -173,7 +181,7 @@
             // 
             // numPrecio
             // 
-            this.numPrecio.Location = new System.Drawing.Point(98, 196);
+            this.numPrecio.Location = new System.Drawing.Point(102, 149);
             this.numPrecio.Name = "numPrecio";
             this.numPrecio.Size = new System.Drawing.Size(228, 20);
             this.numPrecio.TabIndex = 15;
@@ -215,7 +223,7 @@
             // 
             // txtDelete
             // 
-            this.txtDelete.Location = new System.Drawing.Point(265, 409);
+            this.txtDelete.Location = new System.Drawing.Point(269, 362);
             this.txtDelete.Name = "txtDelete";
             this.txtDelete.Size = new System.Drawing.Size(98, 23);
             this.txtDelete.TabIndex = 21;
@@ -225,19 +233,83 @@
             // 
             // btnTodo
             // 
-            this.btnTodo.Location = new System.Drawing.Point(288, 70);
+            this.btnTodo.Location = new System.Drawing.Point(279, 70);
             this.btnTodo.Name = "btnTodo";
-            this.btnTodo.Size = new System.Drawing.Size(75, 23);
+            this.btnTodo.Size = new System.Drawing.Size(90, 23);
             this.btnTodo.TabIndex = 22;
-            this.btnTodo.Text = "Read";
+            this.btnTodo.Text = "Read all";
             this.btnTodo.UseVisualStyleBackColor = true;
             this.btnTodo.Click += new System.EventHandler(this.btnTodo_Click);
             // 
-            // Form1
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.btnJson);
+            this.groupControl1.Controls.Add(this.btnXml);
+            this.groupControl1.Controls.Add(this.btnPdf);
+            this.groupControl1.Controls.Add(this.btnCsv);
+            this.groupControl1.Controls.Add(this.btnTxt);
+            this.groupControl1.Location = new System.Drawing.Point(12, 395);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(357, 94);
+            this.groupControl1.TabIndex = 25;
+            this.groupControl1.Text = "Exportar";
+            // 
+            // btnTxt
+            // 
+            this.btnTxt.Location = new System.Drawing.Point(5, 26);
+            this.btnTxt.Name = "btnTxt";
+            this.btnTxt.Size = new System.Drawing.Size(98, 23);
+            this.btnTxt.TabIndex = 26;
+            this.btnTxt.Text = ".txt";
+            this.btnTxt.UseVisualStyleBackColor = true;
+            this.btnTxt.Click += new System.EventHandler(this.btnTxt_Click);
+            // 
+            // btnCsv
+            // 
+            this.btnCsv.Location = new System.Drawing.Point(121, 26);
+            this.btnCsv.Name = "btnCsv";
+            this.btnCsv.Size = new System.Drawing.Size(102, 23);
+            this.btnCsv.TabIndex = 27;
+            this.btnCsv.Text = ".csv";
+            this.btnCsv.UseVisualStyleBackColor = true;
+            this.btnCsv.Click += new System.EventHandler(this.btnCsv_Click);
+            // 
+            // btnPdf
+            // 
+            this.btnPdf.Location = new System.Drawing.Point(238, 26);
+            this.btnPdf.Name = "btnPdf";
+            this.btnPdf.Size = new System.Drawing.Size(98, 23);
+            this.btnPdf.TabIndex = 28;
+            this.btnPdf.Text = ".pdf";
+            this.btnPdf.UseVisualStyleBackColor = true;
+            this.btnPdf.Click += new System.EventHandler(this.btnPdf_Click_1);
+            // 
+            // btnXml
+            // 
+            this.btnXml.Location = new System.Drawing.Point(43, 55);
+            this.btnXml.Name = "btnXml";
+            this.btnXml.Size = new System.Drawing.Size(132, 23);
+            this.btnXml.TabIndex = 29;
+            this.btnXml.Text = ".xml";
+            this.btnXml.UseVisualStyleBackColor = true;
+            this.btnXml.Click += new System.EventHandler(this.btnXml_Click);
+            // 
+            // btnJson
+            // 
+            this.btnJson.Location = new System.Drawing.Point(181, 55);
+            this.btnJson.Name = "btnJson";
+            this.btnJson.Size = new System.Drawing.Size(132, 23);
+            this.btnJson.TabIndex = 30;
+            this.btnJson.Text = ".json";
+            this.btnJson.UseVisualStyleBackColor = true;
+            this.btnJson.Click += new System.EventHandler(this.btnJson_Click);
+            // 
+            // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 501);
+            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.btnTodo);
             this.Controls.Add(this.txtDelete);
             this.Controls.Add(this.numIdArticulo);
@@ -259,12 +331,14 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.txtUpdate);
-            this.Name = "Form1";
+            this.Name = "Menu";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIdArticulo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,6 +367,12 @@
         private System.Windows.Forms.NumericUpDown numIdArticulo;
         private System.Windows.Forms.Button txtDelete;
         private System.Windows.Forms.Button btnTodo;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private System.Windows.Forms.Button btnJson;
+        private System.Windows.Forms.Button btnXml;
+        private System.Windows.Forms.Button btnPdf;
+        private System.Windows.Forms.Button btnCsv;
+        private System.Windows.Forms.Button btnTxt;
     }
 }
 
